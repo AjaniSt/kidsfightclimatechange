@@ -35,7 +35,7 @@
 var Chart = require('chart.js');
 Chart = typeof(Chart) === 'function' ? Chart : window.Chart;
 
-let watermarkPlugin = {
+var watermarkPlugin = {
 
     defaultOptions: {
         x: 0,
