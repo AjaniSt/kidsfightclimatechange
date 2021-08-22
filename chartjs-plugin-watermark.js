@@ -187,6 +187,6 @@ var watermarkPlugin = {
 };
 
 module.exports = watermarkPlugin;
-Chart.pluginService.register(watermarkPlugin);
+Chart.register(watermarkPlugin);
 
 },{"chart.js":1}]},{},[2]);
