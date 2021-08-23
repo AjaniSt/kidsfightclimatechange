@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Causes of Climate Change</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+</head>
+<body onLoad="ready()">
+<canvas id="myChart" width="250" height="200"></canvas>
+<script>
+    const chart_watermark = {
+        id: 'chart_watermark',
+        afterDraw: (chart) => {
+            const image = new Image();
+                image.src = 'https://static.wixstatic.com/media/6281d3_fa0bf3ebac21475ebbdd6dec7892e01f~mv2.png';
+            if (image.complete) {
+                const image_height = 42;
+                const image_width = 42;
+                const ctx = chart.ctx;
+                const x =35;
+                const y = chart.chartArea.height - 35;
+                ctx.drawImage(image, x, y, image_width, image_height);
+            } else {
+                image.onload = () => chart.draw();
+            }
+        }
+    }
+    Chart.register(chart_watermark)
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Electricity', 'Transportation', 'Industry', 'Commercial/Residential', 'Agriculture'],
+          datasets: [{
+            label: '% of GHG emissions',
+            data: [25, 29, 23, 13, 10],
+            backgroundColor: [
+              'rgba(255, 179, 0, 1)',
+              'rgba(140, 0, 255, 1)',
+              'rgba(0, 139, 252, 1)',
+              'rgba(226, 28, 33, 1)',
+              'rgba(26, 155, 33, 1)',
+            ],
+            hoverOffset: 10,
+          }]
+        },
+        options: {
+          elements: {},
+          plugins:{}
+        },
+          onClick: handleClick
+        }
+      });
+
+      window.onmessage = function(event){
+
+        if (event.data && Array.isArray(event.data)) {
+          myChart.data.datasets[0].data = event.data;
+          myChart.update();
+        }
+        else {
+          console.log("HTML Code Element received a generic message:");
+          console.log(event.data);
+        }
+      };
+
+      function handleClick(e){
+        var activeBars = myChart.getElementAtEvent(e);
+
+        var value = myChart.config.data.datasets[activeBars[0]._datasetIndex].data[activeBars[0]._index];
+        var label = activeBars[0]._model.label;
+
+        window.parent.postMessage({
+          "type":"click",
+          "label":label,
+          "value":value
+        } , "*");
+      }
+
+      function ready(){
+        window.parent.postMessage({"type":"ready"}, "*");
+      }
+
+    </script>
+
+    </body>
+    </html>
