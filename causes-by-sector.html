@@ -18,7 +18,7 @@
                 const image_width = 142;
                 const ctx = chart.ctx;
                 const x =35;
-                const y = chart.chartArea.height - 35;
+                const y = chart.chartArea.height - 35 - 142;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
                 image.onload = () => chart.draw();
