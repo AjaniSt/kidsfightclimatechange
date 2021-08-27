@@ -3,6 +3,7 @@
 	<head>
 		<title>Quiz Template</title>
 		<link type='text/css' rel='stylesheet' href='test-quiz.css'/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 	</head>
 	<body>
 		<div id='container'>
@@ -10,16 +11,12 @@
 				<h2>Title Here</h2>
 			</div>
    			<br/>
-    		<div class='incorrect' id='incorrect1' onClick='incorrectAnswer()'>A1</div>
-    		<div class='incorrect' id='incorrect2' onClick='incorrectAnswer()'>A2</div>
-    		<div class='button' id='correct' onClick='correctAnswer()'> A3</div>
-        <div class='incorrect' id='incorrect3' onClick='incorrectAnswer()'>A4</div>
+    		<div class='incorrect' id='incorrect1' onClick='incorrectAnswer()'><i id='x1' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A1</div>
+    		<div class='incorrect' id='incorrect2' onClick='incorrectAnswer()'><i id='x2' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A2</div>
+    		<div class='button' id='correct' onClick='correctAnswer()'><i class="fas fa-check-circle" id='checkMark' style='color:green; display:none; position:relative; right:150px;'></i> A3</div>
+        <div class='incorrect' id='incorrect3' onClick='incorrectAnswer()'><i id='x3' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A4</div>
         <p id='test'></p>
     	</div>
-
-		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-		<script type="text/javascript" src='questions.json'></script>
-		<script type='text/javascript' src='jsquiz.js'></script>
     <script>
       function correctAnswer() {
         console.log('Correct!')
@@ -32,11 +29,18 @@
         document.getElementById('test').innerHTML = "Hmm, not quite. Let's find out why!<br/>New line"
         changeColors()
       }
+      
       function changeColors() {
-        document.getElementById('correct').style.backgroundColor = '#BCE0A5'
+        var correctStyle = document.getElementById('correct').style
+        //correctStyle.borderColor='#BCE0A5'
+        //correctStyle.borderWidth='5px'
+        correctStyle.boxShadow='10px 20px 30px blue';
+        document.getElementById('checkMark').style.display = 'inline'
         var elements = document.getElementsByClassName('incorrect')
+        var elements2 = document.getElementsByClassName('fas fa-times-circle')
         for(var i = 0; i < elements.length; i++){
           elements[i].style.backgroundColor = '#ED8B84'
+          elements2[i].style.display = 'inline'
         }
       }
     </script>
