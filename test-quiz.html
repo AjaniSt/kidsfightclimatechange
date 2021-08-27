@@ -11,10 +11,10 @@
 				<h2>Title Here</h2>
 			</div>
    			<br/>
-    		<div class='incorrect' id='incorrect1' onClick='incorrectAnswer()'><i id='x1' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A1</div>
-    		<div class='incorrect' id='incorrect2' onClick='incorrectAnswer()'><i id='x2' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A2</div>
+    		<div class='incorrect' id='incorrect1' onClick='incorrectAnswer()'><i id='x1' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px; color:rgb(237, 139, 132)'></i>A1</div>
+    		<div class='incorrect' id='incorrect2' onClick='incorrectAnswer()'><i id='x2' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px; color:rgb(237, 139, 132)'></i>A2</div>
     		<div class='button' id='correct' onClick='correctAnswer()'><i class="fas fa-check-circle" id='checkMark' style='color:green; display:none; position:relative; right:150px;'></i> A3</div>
-        <div class='incorrect' id='incorrect3' onClick='incorrectAnswer()'><i id='x3' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px;'></i>A4</div>
+        <div class='incorrect' id='incorrect3' onClick='incorrectAnswer()'><i id='x3' class="fas fa-times-circle" style='display:none; position:relative; right:152.5px; color:rgb(237, 139, 132)'></i>A4</div>
         <p id='test'></p>
     	</div>
     <script>
@@ -32,15 +32,16 @@
       
       function changeColors() {
         var correctStyle = document.getElementById('correct').style
-        //correctStyle.borderColor='#BCE0A5'
+        correctStyle.borderColor='#BCE0A5'
         //correctStyle.borderWidth='5px'
-        correctStyle.boxShadow='5px 5px 5px green';
+        correctStyle.boxShadow='5px 5px 5px rgb(188, 224, 165)';
         document.getElementById('checkMark').style.display = 'inline'
         var elements = document.getElementsByClassName('incorrect')
         var elements2 = document.getElementsByClassName('fas fa-times-circle')
         for(var i = 0; i < elements.length; i++){
-          elements[i].style.backgroundColor = '#ED8B84'
           elements2[i].style.display = 'inline'
+	  elements[i].style.boxShadow='2px 2px 2px rgb(237, 139, 132)';
+	  elements[i].style.borderColor='#ed8b84'
         }
       }
     </script>
