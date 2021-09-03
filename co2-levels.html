@@ -8,18 +8,20 @@
 </head>
 <body onLoad="ready()">
 <canvas id="myChart" width="250" height="200"></canvas>
+
 <script>
+
     const chart_watermark = {
         id: 'chart_watermark',
         afterDraw: (chart) => {
             const image = new Image();
                 image.src = 'https://static.wixstatic.com/media/6281d3_19b5d40c9896439494b2a8a8f8eb37ea~mv2.png';
             if (image.complete) {
-                const image_height = 48.53613381001;
-                const image_width = 35;
+                const image_width = .02*(chart.chartArea.width);
+                const image_height = image_width * (image.naturalHeight / image.naturalWidth);
                 const ctx = chart.ctx;
-                const x =35;
-                const y = chart.chartArea.height - 35;
+                const x = 2*image_width;
+                const y = chart.chartArea.height - image_height;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
                 image.onload = () => chart.draw();
@@ -260,4 +262,4 @@
     </script>
 
     </body>
-    </html>
+</html>
