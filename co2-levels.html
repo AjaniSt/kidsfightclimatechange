@@ -17,12 +17,12 @@
             const image = new Image();
                 image.src = 'https://static.wixstatic.com/media/6281d3_19b5d40c9896439494b2a8a8f8eb37ea~mv2.png';
             if (image.complete) {
-                const image_width = 0.04*chart.chartArea.width;
+                const image_width = 0.05*chart.chartArea.width;
                 const image_height = image_width * (image.naturalHeight / image.naturalWidth);
                 console.log('image: ', image_width, image_height)
                 console.log('chart: ', chart.chartArea.width, chart.chartArea.height)
                 const ctx = chart.ctx;
-                const x = chart.chartArea.width - image_width;
+                const x = chart.chartArea.width - 10;
                 const y = chart.chartArea.height - image_height;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
