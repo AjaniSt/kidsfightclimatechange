@@ -21,7 +21,7 @@
                 const image_height = image_width * (image.naturalHeight / image.naturalWidth);
                 const ctx = chart.ctx;
                 const x = 2*image_width;
-                const y = window.innerHeight - image_height;
+                const y = chart.chartArea.height - image_height;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
                 image.onload = () => chart.draw();
