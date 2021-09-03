@@ -19,6 +19,7 @@
             if (image.complete) {
                 const image_width = 0.03*chart.chartArea.width;
                 const image_height = image_width * (image.naturalHeight / image.naturalWidth);
+                console.log(image_width, image_height)
                 const ctx = chart.ctx;
                 const x = chart.chartArea.width - image_width;
                 const y = chart.chartArea.height - image_height;
