@@ -23,7 +23,7 @@
                 console.log('image: ', image_width, image_height)
                 console.log('chart: ', chart.chartArea.width, chart.chartArea.height)
                 const ctx = chart.ctx;
-                const x = chart.chartArea.width - 10;
+                const x = chart.chartArea.width;
                 const y = chart.chartArea.height - image_height;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
