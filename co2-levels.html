@@ -24,7 +24,7 @@
                 console.log('image: ', image_width, image_height)
                 console.log('chart: ', chart.chartArea.width, chart.chartArea.height)
                 const ctx = chart.ctx;
-                const x = chart.chartArea.width;
+                const x = chart.chartArea.width + 10;
                 const y = chart.chartArea.height - image_height;
                 ctx.drawImage(image, x, y, image_width, image_height);
             } else {
@@ -206,7 +206,7 @@
                 display: true,
                 text: 'Carbon Dioxide Level (Parts Per Million)',
                 font: {
-                  size: 25,
+                  size: 15,
                   family: 'Raleway'
                 }
               }
