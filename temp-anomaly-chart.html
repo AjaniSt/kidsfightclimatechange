@@ -343,23 +343,23 @@
         },
         options: {
           scales: {
-            yAxes: [{
+            y: {
               ticks: {
                 beginAtZero: true,
                  callback: function(value, index, values) {
                    return value + '°C';
                  }
               },
-              titles: {
+              title: {
                 display: true,
-                text: 'Test'
+                text: 'Temperature Anomaly (in Celsius)'
               }
-            }],
-            xAxes: [{
+            },
+            x: {
               ticks: {
                     maxTicksLimit: 15
                 }
-              }]
+              }
           },
           plugins:{
             legend: {display: false},
