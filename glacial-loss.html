@@ -5,6 +5,8 @@
   <title>Glacial Loss From 1980-2017</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
 </head>
 <body onLoad="ready()">
 <canvas id="myChart" width="250" height="200"></canvas>
@@ -27,6 +29,7 @@
         }
     }
     Chart.register(chart_watermark)
+    Chart.defaults.font.family = 'Lato', 'sans-serif';
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -98,23 +101,28 @@
         },
         options: {
           scales: {
-            yAxes: [{
+            y: {
               ticks: {
                 beginAtZero: true,
                  callback: function(value, index, values) {
-                   return value + '°C';
+                   return value + ' m';
                  }
               },
-              titles: {
+              title: {
                 display: true,
-                text: 'Test'
-              }
-            }],
-            xAxes: [{
+                text: 'Glacial Mass Loss (meters)',
+                padding: {top: 20, left: 0, right: 0, bottom: 0},
+                font: {
+                  size: 25
+                }
+              },
+              max: 5
+            },
+            x: {
               ticks: {
                     maxTicksLimit: 15
                 }
-              }]
+            }
           },
           plugins:{
             legend: {display: false},
