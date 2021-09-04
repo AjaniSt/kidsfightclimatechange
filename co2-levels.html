@@ -194,23 +194,23 @@
         },
         options: {
           scales: {
-            yAxes: [{
+            y: {
               ticks: {
                 beginAtZero: true,
                  callback: function(value, index, values) {
-                   return value + '°C';
+                   return value + ' PPM';
                  }
               },
-              titles: {
+              title: {
                 display: true,
-                text: 'Test'
+                text: 'Carbon Dioxide Level (Parts Per Million)'
               }
-            }],
-            xAxes: [{
+            },
+            x: {
               ticks: {
                     maxTicksLimit: 15
                 }
-              }]
+              }
           },
           plugins:{
             legend: {display: false},
