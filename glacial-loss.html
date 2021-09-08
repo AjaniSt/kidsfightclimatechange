@@ -7,10 +7,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9bbb26aa5a.js" crossorigin="anonymous"></script>
+  <style>
+  #mobile-message {
+    font-family: 'Lato', sans-serif;
+    display: none;
+    text-align: center;
+    font-size: 5em;
+  }
+  a {
+    color: #008afc;
+  }
+  .fas {
+    font-size: .75em;
+  }
+  </style>
 </head>
 <body onLoad="ready()">
 <canvas id="myChart" width="100%" height="80%"></canvas>
+<p id='mobile-message'>Click <a href='https://ajanist.github.io/kidsfightclimatechange/glacial-loss.html'>here <i class="fas fa-external-link-alt"></i></a> to view this interactive graph!</p>
 <script>
+    let mql = window.matchMedia('(max-width: 980px)')
+    if(mql.matches) {
+      document.getElementById('myChart').style.display = 'none';
+      document.getElementById('mobile-message').style.display = 'block';
+      console.log('Mobile Ready')
+    }
     const chart_watermark = {
         id: 'chart_watermark',
         afterDraw: (chart) => {
